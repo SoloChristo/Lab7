@@ -37,8 +37,8 @@ self.addEventListener('install', function (event) {
 });
 //   - One for activation ( check out MDN's clients.claim() for this step )
 self.addEventListener('activate', function (event) {
-
-    var cacheAllowlist = ['pages-cache-v1', 'blog-posts-cache-v1'];
+    event.waitUntil(clients.claim());
+    let cacheAllowlist = ['pages-cache-v1', 'blog-posts-cache-v1'];
 
     event.waitUntil(
         caches.keys().then(function (cacheNames) {
