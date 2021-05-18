@@ -20,7 +20,9 @@ let urlsToCache = [
     '/components/-entry.js',
     '/style.css',
     '/scripts/router.js',
-    '/scripts/script.js'
+    '/scripts/script.js',
+    'https://cse110lab6.herokuapp.com/entries'
+
 ];
 
 self.addEventListener('install', function (event) {
@@ -85,4 +87,15 @@ self.addEventListener('fetch', function (event) {
             })
     );
 });
-
+// self.addEventListener('fetch', function (event) {
+//     event.respondWith(
+//         caches.open('https://cse110lab6.herokuapp.com/entries').then(function (cache) {
+//             return cache.match(event.request).then(function (response) {
+//                 return response || fetch(event.request).then(function (response) {
+//                     cache.put(event.request, response.clone());
+//                     return response;
+//                 });
+//             });
+//         })
+//     );
+// });
